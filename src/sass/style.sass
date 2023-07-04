@@ -1,12 +1,47 @@
 @import 'fonts'
+@import 'icons'
+@import 'reset'
+
+
+$fontFamily: "Gilroy"
+$fontSize: 16
+
+$minWidth: 320
+$maxWidth: 1440 // ширина полотна
+$maxWidthContainer: 1270 // 1240 по макету + 12рх паддинг (см ._container)
+$md1: $maxWidthContainer + 12
+// $md2:
+// $md3:
+// $md4:
+
+
+$mainColor: #3a3a3a
+$orangeColor: #E89F71
+$grayColor: #898989
+$darkGrayColor: #616161
+
+html,
+body
+    height: 100%
+    line-height: 1
+    font-size: $fontSize
 
 body
-    header
-        color: red
-    img
-        width: 150px
-    font-family: open
-    font-size: 22px
+    font-family: Gilroy
+    font-size: 1rem
 
-.page
-    color: #d7bf09
+.wrapper
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    min-height: 100%
+
+.main
+    flex: 1 1 auto
+    
+[class*="__container"]
+    max-width: $maxWidthContainer + px
+    padding: 0 15px
+    margin: 0 auto
+
+@import 'header'

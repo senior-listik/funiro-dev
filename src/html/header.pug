@@ -1,2 +1,18 @@
-header 
-    h2 Hilander
+header.header 
+    .header__wrapper 
+        .header__container
+            .header__body 
+                .header__main
+                    a.header__logo(href="") Funiro
+                    .header__menu.menu 
+                        button.menu__icon.icon-menu(type="button")
+                            span
+                            span
+                            span
+                        nav.menu__body 
+                            ul.menu__list
+                                each val in ['Products', 'Rooms', 'Inspirations']
+                                    li.menu__item 
+                                        a.menu__link(href="")= val
+                .header__search 
+                .header__actions.actions-header
