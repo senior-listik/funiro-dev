@@ -1,0 +1,147 @@
+.header
+    position: absolute
+    width: 100%
+    top: 0
+    left: 0
+    &__wrapper
+        position: fixed
+        width: 100%
+        top: 0
+        left: 0
+        z-index: 50
+
+    &__container
+
+    &__body
+        display: flex
+        align-items: center
+        padding: 5px 0
+        min-height: 125px
+
+    &__main
+        display: flex
+        align-items: center
+        flex: 0 0 494/1240 * 100%
+
+    &__logo
+        color: #000
+        font-size: 1.5rem
+        font-weight: 700
+        line-height: 29/24 * 100%
+
+    &__menu
+        
+
+    &__search
+
+    &__actions
+
+.menu
+    flex: 0 1 420px
+    
+    &__body
+
+    &__list
+        @media (min-width: $md3+px)
+            display: flex
+            flex-wrap: wrap
+            justify-content: space-evenly
+
+    &__item
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-wrap: wrap
+        margin: 0 3px
+        padding: 5px 0
+        position: relative
+        @media (any-hover: hover)
+            &:hover
+                .menu__sub-list 
+                    transform: translate(0px, 0px) 
+                    opacity: 1
+                    visibility: visible
+                    pointer-events: auto
+                .menu__arrow
+                    transform: rotate(-180deg) translate(0px, 2px)
+                .menu__arrow,
+                .menu__link
+                    color: $orangeColor
+    &__link
+        color: inherit
+        font-weight: 500
+        line-height: 150%
+        transition: color 0.3s ease 0s
+
+    &__arrow
+        color: inherit
+        background-color: inherit
+        font-size: 0.5rem
+        margin-left: 8px
+        transition: all 0.3s ease 0s
+
+    &__sub-list
+        position: relative
+        background-color: $orangeColor
+        padding: 15px
+        flex: 1 1 100%
+        @media (min-width: $md3+px)
+            opacity: 0
+            transition: all 0.3s ease 0s
+            transform: translate(0px, 10px)
+            visibility: hidden
+            min-width: 200px
+            left: 0
+            pointer-events: none
+            position: absolute
+            top: 100%
+
+    &__sub-item
+        &:not(:last-child)
+            margin: 0 0 5px 0
+    &__sub-link
+        color: #FFFFFF
+        line-height: 120%
+
+
+// .
+//     &_icon-arrow-down
+
+//     &_icon-search
+
+//     &_icon-favorite
+
+//     &_icon-cart
+
+//     &_ibg
+
+
+// .search-form
+//     &__icon
+
+//     &__item
+
+//     &__btn
+
+//     &__input
+
+
+// .actions-header
+//     &__item
+
+//         &_favorites
+
+//         &_user
+
+// .cart-header
+//     &__icon
+
+//     &__body
+
+//     &__list
+
+
+// .cart-list
+
+// .icon-menu
+

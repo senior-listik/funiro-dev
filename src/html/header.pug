@@ -1,18 +1,40 @@
+- const values = ['Products', 'Rooms', 'Inspirations'];
+
 header.header 
     .header__wrapper 
         .header__container
-            .header__body 
+            .header__body
                 .header__main
-                    a.header__logo(href="") Funiro
-                    .header__menu.menu 
-                        button.menu__icon.icon-menu(type="button")
-                            span
-                            span
-                            span
-                        nav.menu__body 
+                    a.header__logo(href="") Funiro.
+                    .header__menu.menu
+                        nav.menu__body
                             ul.menu__list
-                                each val in ['Products', 'Rooms', 'Inspirations']
-                                    li.menu__item 
+                                each val in values
+                                    li.menu__item
                                         a.menu__link(href="")= val
-                .header__search 
+                                        if val != 'Inspirations'
+                                            button.menu__arrow._icon-arrow-down(type="button", data-spoiler)
+                                            ul.menu__sub-list
+                                                - let n = 1;
+                                                while n < 5
+                                                    li.menu__sub-item
+                                                        a.menu__sub-link(href="")= val + ' #' + n
+                                                        - n++
+                .header__search
+                    .search-form
+                        button.search-form__icon._icon-search(type="button")
+                        form.search-form__item(action="#")
+                            button.search-form__btn._icon-search(type="submit")
+                            input.search-form__input(autocomplete="off", type="text", name="form[]", data-value="Search for minimalist chair")
                 .header__actions.actions-header
+                    a.actions-header__item.actions-header__item_favorites._icon-favorite(href="#")
+                    .actions-header__item.cart-header
+                        a.cart-header__icon._icon-cart(href="#")
+                        .cart-header__body
+                            ul.cart-header__list.cart-list
+                    a.actions-header__item.actions-header__item_user._ibg(href="#")
+                        img(src="@img/avatar.jpg", width="50px" alt="User avatar")
+                button.icon-menu(type="button")
+                    span
+                    span
+                    span
