@@ -18,3 +18,14 @@ document.querySelector('body').classList.add('no-webp');
 }); 
 }
 
+export const inputPlaceholderValue = () => {
+   // Получаем поле ввода
+   const input = document.querySelector('.search-form__input');
+
+   // Устанавливаем значение поля ввода на основе атрибута data-value
+   input.placeholder = input.getAttribute('data-value');
+}
+
+export const isMobile = { Android: () => navigator.userAgent.match(/Android/i), BlackBerry: () => navigator.userAgent.match(/BlackBerry/i), iOS: () => navigator.userAgent.match(/iPhone|iPad|iPod/i), Opera: () => navigator.userAgent.match(/Opera Mini/i), Windows: () => navigator.userAgent.match(/IEMobile/i), any: () => (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) };
+
+export const _removeClasses = (nodes, className) => nodes.forEach(node => node.classList.remove(className));
