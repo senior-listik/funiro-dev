@@ -1,0 +1,15 @@
+@mixin adaptiv-value($property, $startSize, $minSize, $type)
+    $addSize: $startSize - $minSize
+    @if $type==1
+        // Тільки якщо менше контейнеру
+        #{$property}: $startSize + px
+        @media (max-width: #{$maxWidthContainer + px})
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100wv - 320px) / #{$maxWidthContainer - 320}))
+    @else if $type==2
+        // Тільки якщо більше контейнеру
+        #{$property}: $startSize + px
+        @media (min-width: #{$maxWidthContainer + px})
+            #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100wv - 320px) / #{$minSize - 320}))
+    @else
+        // Завжди
+        #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100wv - 320px) / #{$minSize - 320}))
