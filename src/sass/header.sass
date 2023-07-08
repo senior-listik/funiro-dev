@@ -17,23 +17,31 @@
         align-items: center
         padding: 5px 0
         min-height: 125px
-
+        position: relative
+        @media (max-width: $md2+px)
+            min-height: 80px
+        @media (max-width: $md3+px)
+            min-height: 50px
     &__main
         display: flex
         align-items: center
         flex: 0 0 494/1240 * 100%
+        @media (max-width: $md2+px)
+            flex: 1 1 100%
 
     &__logo
         color: #000
         font-size: 1.5rem
         font-weight: 700
         line-height: 29/24 * 100%
-
+        position: relative
+        z-index: 5
     &__menu
 
     &__search
-         @media (min-width: $md2+px)
-            flex: 1 1 auto
+        @include adaptiv-value("padding-right", 32, 15, 1)
+        @media (min-width: $md2+px)
+        flex: 1 1 auto
 
     &__actions
 
@@ -41,7 +49,16 @@
     flex: 0 1 420px
     
     &__body
-
+        @media (max-width: $md3+px)
+            position: fixed
+            width: 100%
+            height: 100%
+            overflow: auto
+            top: 0
+            left: 0
+            background-color: #fcf8f3
+            transition: left 0.3s ease 0s
+            padding: 70px 15px 30px 15px
     &__list
         @media (min-width: $md3+px)
             display: flex
@@ -80,18 +97,29 @@
                 .menu__arrow,
                 .menu__link
                     color: $orangeColor
+        @media (max-width: $md3+px)
+            margin: 0 0 15px 0
+            &:last-child
+                margin-bottom: 0
     &__link
         color: inherit
         font-weight: 500
         line-height: 150%
         transition: color 0.3s ease 0s
+        @media (max-width: $md3+px)
+            font-size: 1.5rem
+            font-weight: 600
 
     &__arrow
         color: inherit
-        background-color: inherit
+        background-color: transparent
         font-size: 0.5rem
         margin-left: 8px
         transition: all 0.3s ease 0s
+        @media (max-width: $md3+px)
+            font-size: 0.82rem
+            &._activ
+                transform: rotate(-180deg)
 
     &__sub-list
         position: relative
@@ -108,13 +136,22 @@
             pointer-events: none
             position: absolute
             top: 100%
-
+            z-index: 5
+        @media (max-width: $md3+px)
+            margin: 10px -15px 0 -15px
     &__sub-item
         &:not(:last-child)
             margin: 0 0 5px 0
+            @media (max-width: $md3+px)
+            margin: 0px 0px 10px 0px
     &__sub-link
         color: #FFFFFF
         line-height: 120%
+        @media (any-hover: hover)
+            &:hover
+                text-decoration: underline
+        @media (max-width: $md3+px)
+            font-size: 1.13rem
 
 
 // .
@@ -131,12 +168,36 @@
 
 .search-form
     max-width: 473px
+    &._active
+        .search-form__item
+            opacity: 1
+            top: 100%
+            visibility: visible
+        .search-form__icon
+            color: $orangeColor
     &__icon
-        display: none
+        position: relative
+        z-index: 5
+        font-size: 22px
+        background: transparent
+        color: #262f56
+        @media (min-width: $md2+px)
+            display: none
     &__item
         background-color: #FFFFFF
         display: flex
         align-items: center
+        @media (max-width: $md2+px)
+            box-shadow: 0 0 5px rgba(212, 209, 205, 0.3)
+            position: absolute
+            width: 100%
+            left: 0
+            top: -100%
+            z-index: 5
+            opacity: 0
+            visibility: hidden
+            transition: all 0.3s ease 0s
+
     &__btn
         flex: 0 0 45px
         height: 45px
@@ -158,15 +219,46 @@
     grid-template-columns: auto
     grid-auto-flow: column
     align-items: center
-    
-//     &__item
+    @include adaptiv-value("gap", 32, 15, 1)
+    &__item
+        &_favorites
+            color: #262f56
+            font-size: 24px
+            transition: color 0.3s ease 0s
+            @media (any-hover: hover)
+                &:hover
+                    color: $orangeColor
 
-//         &_favorites
+        &_user
+            img
+                overflow: hidden
+                border-radius: 50%
+                @include adaptiv-value("width", 40, 30, 1)
+                @include adaptiv-value("height", 40, 30, 1)
 
-//         &_user
-
-// .cart-header
-//     &__icon
+.cart-header
+    &__icon
+        color: #262f56
+        font-size: 24px
+        transition: color 0.3s ease 0s
+        position: relative
+        display: block
+        @media (any-hover: hover)
+            &:hover
+                color: $orangeColor
+        span
+            position: absolute
+            width: 20px
+            height: 20px
+            display: flex
+            align-items: center
+            justify-content: center
+            top: -10px
+            right: -10px
+            border-radius: 50%
+            background-color: $orangeColor
+            color: #fff
+            font-size: 12px
 
 //     &__body
 

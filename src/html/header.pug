@@ -8,7 +8,7 @@ header.header
                     a.header__logo(href="") Funiro.
                     .header__menu.menu
                         nav.menu__body
-                            ul.menu__list
+                            ul.menu__list(data-spoilers="768,max")
                                 each val in values
                                     li.menu__item
                                         a.menu__link(href="")= val
@@ -33,7 +33,7 @@ header.header
                         .cart-header__body
                             ul.cart-header__list.cart-list
                     a.actions-header__item.actions-header__item_user._ibg(href="#")
-                        img(src="@img/avatar.jpg", width="50px" alt="User avatar")
+                        img(src="@img/avatar.png", alt="User avatar")
                 button.icon-menu(type="button")
                     span
                     span
