@@ -341,7 +341,7 @@ body {
   .menu__arrow {
     font-size: 0.82rem;
   }
-  .menu__arrow._activ {
+  .menu__arrow._active {
     transform: rotate(-180deg);
   }
 }

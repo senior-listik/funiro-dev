@@ -8,12 +8,12 @@ header.header
                     a.header__logo(href="") Funiro.
                     .header__menu.menu
                         nav.menu__body
-                            ul.menu__list(data-spoilers="768,max")
+                            ul.menu__list(data-spollers="768,max")
                                 each val in values
                                     li.menu__item
                                         a.menu__link(href="")= val
                                         if val != 'Inspirations'
-                                            button.menu__arrow._icon-arrow-down(type="button", data-spoiler)
+                                            button.menu__arrow._icon-arrow-down(type="button", data-spoller)
                                             ul.menu__sub-list
                                                 - let n = 1;
                                                 while n < 5
@@ -25,7 +25,7 @@ header.header
                         button.search-form__icon._icon-search(type="button")
                         form.search-form__item(action="#")
                             button.search-form__btn._icon-search(type="submit")
-                            input.search-form__input(autocomplete="off", type="text", name="form[]", data-value="Search for minimalist chair")
+                            input.search-form__input(autocomplete="off" type="text" name="form[]" data-value="Search for minimalist chair")
                 .header__actions.actions-header
                     a.actions-header__item.actions-header__item_favorites._icon-favorite(href="#")
                     .actions-header__item.cart-header
@@ -33,7 +33,7 @@ header.header
                         .cart-header__body
                             ul.cart-header__list.cart-list
                     a.actions-header__item.actions-header__item_user._ibg(href="#")
-                        img(src="@img/avatar.png", alt="User avatar")
+                        img(src="@img/avatar.png" alt="User avatar")
                 button.icon-menu(type="button")
                     span
                     span
