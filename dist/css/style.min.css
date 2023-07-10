@@ -258,10 +258,27 @@ body {
     height: 100%;
     overflow: auto;
     top: 0;
-    left: 0;
+    left: -100%;
     background-color: #fcf8f3;
     transition: left 0.3s ease 0s;
     padding: 70px 15px 30px 15px;
+  }
+  .menu__body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease 0s;
+    background-color: #fcf8f3;
+    z-index: 2;
+  }
+  .menu__body._active {
+    left: 0;
+  }
+  .menu__body._active::before {
+    left: 0;
   }
 }
 @media (min-width: 767.98px) {
@@ -510,4 +527,22 @@ body {
   background-color: #E89F71;
   color: #fff;
   font-size: 12px;
+}
+
+@media (max-width: 767.98px) {
+  .icon-menu {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: 10px;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+  }
+  .icon-menu:first-child {
+    top: 0;
+  }
 }
