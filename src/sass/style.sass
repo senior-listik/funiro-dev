@@ -3,7 +3,6 @@
 @import 'reset'
 @import 'mixins'
 
-
 $fontFamily: "Gilroy"
 $fontSize: 16
 
@@ -38,12 +37,14 @@ body
     flex-direction: column
     min-height: 100%
 
-.main
-    flex: 1 1 auto
+main
+    flex: 1 1 100%
     
 [class*="__container"]
     max-width: $maxWidthContainer + px
     padding: 0 15px
     margin: 0 auto
+    
 
 @import 'header'
+@import 'footer'

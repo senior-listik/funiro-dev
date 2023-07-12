@@ -22,6 +22,8 @@
             min-height: 80px
         @media (max-width: $md3+px)
             min-height: 50px
+        &._lock
+            overflow: hidden
     &__main
         display: flex
         align-items: center
@@ -167,19 +169,6 @@
         @media (max-width: $md3+px)
             font-size: 1.13rem
 
-
-// .
-//     &_icon-arrow-down
-
-//     &_icon-search
-
-//     &_icon-favorite
-
-//     &_icon-cart
-
-//     &_ibg
-
-
 .search-form
     max-width: 473px
     &._active
@@ -274,25 +263,18 @@
             color: #fff
             font-size: 12px
 
-//     &__body
-
-//     &__list
-
-
-// .cart-list
-
 .icon-menu
     @media ( max-width: $md3+px )
+        @include adaptiv-value("margin-left", 32, 15 ,1)
         display: block
-        position: absolute
-        top: 18px
-        right: 10px
-        width: 30px
+        position: relative
+        flex: 0 0 30px
         height: 18px
-        cursor: 
+        cursor: pointer
         z-index: 5
+        background: transparent
         span
-            trnsition: all 0.3s ease 0s
+            transition: all 0.3s ease 0s
             top: calc(50% - 1px)
             left: 0
             position: absolute

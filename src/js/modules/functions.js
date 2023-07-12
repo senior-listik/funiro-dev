@@ -19,11 +19,15 @@ document.querySelector('body').classList.add('no-webp');
 }
 
 export const inputPlaceholderValue = () => {
-   // Получаем поле ввода
-   const input = document.querySelector('.search-form__input');
+   // Получаем все поля ввода с классом '.search-form__input'
+const inputs = document.querySelectorAll('._input');
 
-   // Устанавливаем значение поля ввода на основе атрибута data-value
-   input.placeholder = input.getAttribute('data-value');
+// Применяем код к каждому полю ввода
+inputs.forEach(input => {
+  const dataValue = input.getAttribute('data-value');
+  input.placeholder = dataValue;
+});
+
 }
 
 export const isMobile = { Android: () => navigator.userAgent.match(/Android/i), BlackBerry: () => navigator.userAgent.match(/BlackBerry/i), iOS: () => navigator.userAgent.match(/iPhone|iPad|iPod/i), Opera: () => navigator.userAgent.match(/Opera Mini/i), Windows: () => navigator.userAgent.match(/IEMobile/i), any: () => (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) };

@@ -6,3 +6,4 @@ flsFunctions.isWebp();
 
 import './files/script.js';
 import './files/spoller.js';
+import './files/menu-burger.js';
