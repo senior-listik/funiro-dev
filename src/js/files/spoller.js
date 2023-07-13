@@ -97,7 +97,7 @@ const spollersArray = document.querySelectorAll('[data-spollers]');
             if (el.hasAttribute('data-spoller') || el.closest('[data-spoller]')) {
                 const spollerTitle = el.hasAttribute('data-spoller') ? el : el.closest('[data-spoller]');
                 const spollersBlock = spollerTitle.closest('[data-spollers]');
-                const oneSpoller = spollersBlock.hasAttribute('data-spoller') ? true : false;
+                const oneSpoller = spollersBlock.hasAttribute('data-one-spoller') ? true : false;
                 if (!spollersBlock.querySelectorAll('._slide').length) {
                     if (oneSpoller && !spollerTitle.classList.contains('_active')) {
                         hideSpollersBody(spollersBlock);

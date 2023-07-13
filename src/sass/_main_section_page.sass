@@ -1,0 +1,141 @@
+.page
+    flex: 1 1 auto
+    &__main-slider
+
+.main-slider
+    background: #FCF8F3
+    &__container
+        position: relative
+        @media (min-width: $md2+px)
+            &::before
+                content: ""
+                background: #F9F1E7
+                position: absolute
+                top: 0
+                width: 100vw
+                right: 376px
+                height: 100%
+
+    &__body
+        padding-top: 140px
+        position: relative
+        z-index: 2
+        @media (max-width: $md2+px)
+            padding-top: 80px
+        @media (max-width: $md3+px)
+            padding-top: 50px
+        @media (min-width: $md2+px)
+            display: flex
+    &__content
+        flex: 0 0 494/1240 * 100%
+    &__slider
+        flex: 1 1 auto
+        min-width: 0
+
+.content-main
+    position: relative
+    z-index: 5
+    background: rgba(255, 255, 255, 0.72)
+    padding-left: 15px
+    padding-right: 15px
+    @include adaptiv-value("padding-top", 60, 1, 1)
+    @include adaptiv-value("padding-bottom", 60, 1, 1)
+    @media (min-width: $md2+px)
+        @include adaptiv-value("padding", 60, 1, 1)
+        background: rgba(255, 255, 255, 0.9)
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px)))
+            background: rgba(255, 255, 255, 0.72)
+            backdrop-filter: blur(15.5px)
+    &__title
+        @include adaptiv-value("font-size", 56, 24, 1)
+        font-weight: 700
+        line-height: 120%
+        &:not(:last-child)
+            margin: 0 0 16px/56px * 1em 0
+
+    &__text
+        @include adaptiv-value("font-size", 20, 16, 1)
+        color: $grayColor
+        font-weight: 500
+        line-height: 150%
+        &:not(:last-child)
+            margin: 0 0 48px/20px * 1em 0
+    &__button
+        @include adaptiv-value("height", 78, 45, 1)
+        @include adaptiv-value("font-size", 20, 16, 1)
+        background-color: $orangeColor
+        color: #fff
+        width: 100%
+        font-weight: 600
+        line-height: 150%
+        @media (any-hover: hover)
+            &:hover
+                background-color: #da7d43
+
+.btn
+    display: inline-flex
+    justify-content: center
+    padding: 0 15px
+    align-items: center
+    transition: all 0.3s ease 0s
+    min-height: 48px
+
+
+.slider-main
+    &__controls
+
+    &__body
+
+    &__slide
+
+    &__image
+
+    &__content
+
+    &__title
+
+    &__text
+
+    &__price
+
+
+.controls-slider-main
+    &__dotts
+
+    &__arrows
+
+
+.slider-arrows
+    display: grid
+    grid-template-columns: repeat(2, 48px)
+    column-gap: 8px
+
+.slider-arrow
+    border-radius: 50%
+    height: 48px
+    background-color: rgba(232, 159, 133, 0.3)
+    color: $orangeColor
+    font-size: 12px
+    cursor: pointer
+    transition: all 0.3s ease 0s
+    &_prev
+        &::before
+            transform: rotate(90deg) translate(0, 2px)
+    &_next
+        &::before
+            transform: rotate(-90deg) translate(0, 2px)
+    @media (any-hover: hover)
+            &:hover
+                color: #fff
+                background-color: rgba(232, 159, 133, 1)
+
+// .
+    // &_icon-arrow-down
+
+    // &_swiper
+
+    // &_ibg
+
+    // &_icon-arrow-link
+
+
