@@ -3,8 +3,10 @@ let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
     for (let index = 0; index < sliders.length; index++){
         let slider = sliders[index];
+        console.log(slider)
         if (!slider.classList.contains('swiper-bild')) {
             let slider_items = slider.children;
+            console.log(slider_items)
             if (slider_items) {
                 for (let index = 0; index < slider_items.length; index++) {
                     let el = slider_items[index];
@@ -29,10 +31,10 @@ if (sliders) {
             // slider.data('LightGallery').destroy(true);
         }
     }
-    sliders_bild_callback();
+    // sliders_bild_callback();
 }
 
-function sliders_bild_callback(params) { }
+// function sliders_bild_callback(params) { }
 
 let sliderScrollItems = document.querySelectorAll('._swiper_scroll');
 if (sliderScrollItems > 0) {
@@ -58,7 +60,7 @@ if (sliderScrollItems > 0) {
     }
 }
 
-function sliders_bild_callback(params) { }
+// function sliders_bild_callback(params) { }
 
 if (document.querySelector('.slider-main__body')) {
     new Swiper('.slider-main__body', {

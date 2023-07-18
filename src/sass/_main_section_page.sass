@@ -28,9 +28,13 @@
             display: flex
     &__content
         flex: 0 0 494/1240 * 100%
+        @include adaptiv-value("padding-bottom", 80, 15, 1)
     &__slider
         flex: 1 1 auto
         min-width: 0
+        align-self: flex-end
+        @media (min-width: $md2+px)
+            padding-left: 32px
 
 .content-main
     position: relative
@@ -80,28 +84,73 @@
     transition: all 0.3s ease 0s
     min-height: 48px
 
-
 .slider-main
+    display: flex
+    flex-direction: column
+    align-items: flex-end
     &__controls
+        align-self: stretch
+        margin: 0 0 20px 0
 
     &__body
+        overflow: visible
+        @media (min-width: $md+px)
+            @include adaptiv-value("width", 934, 290, 1)
 
     &__slide
+        position: relative
 
     &__image
+        // padding-bottom: 59.1%
 
     &__content
-
+        min-width: 295px
+        max-height: 300px
+        overflow: auto
+        position: absolute
+        color: inherit
+        display: flex
+        flex-direction: column
+        @include adaptiv-value("padding", 24, 15, 1)
+        @media (min-width: $md3+px)
+            position: absolute
+            min-width: 350px
+            @include adaptiv-value("right", 40, 0, 1)
+            @include adaptiv-value("bottom", 40, 0, 1)
+        @supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px)))
+            background: rgba(255, 255, 255, 0.72)
+            backdrop-filter: blur(31px)
     &__title
-
+        @include adaptiv-value("font-size", 28, 22, 1)   
+        font-weight: 600
+        line-height: 120%
+        &:not(:last-child)
+            margin: 0 0 4px/28px * 1em 0
     &__text
+        line-height: 150%
+        color: $grayColor
+        &:not(:last-child)
+            margin: 0 0 8px/16px * 1em 0
 
     &__price
+        display: flex
+        flex-direction: row-reverse
+        line-height: 150%
+        align-items: center
+        font-weight: 600
+        justify-content: space-between
+        @include adaptiv-value("font-size", 20, 16, 1)
+        &::before
+            margin: 0 0 0 10px
+            font-size: 12px
+
 
 
 .controls-slider-main
+    display: flex
+    align-items: center
     &__dotts
-
+        flex: 1 1 auto
     &__arrows
 
 
@@ -128,7 +177,52 @@
             &:hover
                 color: #fff
                 background-color: rgba(232, 159, 133, 1)
+    &_white
+        box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16)
+        background-color: #fff
+        @media (any-hover: hover)
+            &:hover
+                background-color: $orangeColor
+                color: #fff
 
+.swiper-pagination-bullets
+    display: flex
+    flex-wrap: wrap
+
+.swiper-pagination-bullet
+    cursor: pointer
+    flex: 0 0 27px
+    height: 27px
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    margin: 2px 0
+    &:not(:last-child)
+        margin-right: 12px
+    &::after
+        content: ""
+        width: 11px
+        height: 11px
+        background-color: #d8d8d8
+        border-radius: 50%
+        transition: background-color 0.3s ease 0s
+    &::before
+        content: ""
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        border: 1px solid $orangeColor
+        transition: transform 0.3s ease 0s
+        transform: scale(0)
+.swiper-pagination-bullet-active
+    &::after
+        background-color: $orangeColor
+    &::before
+        transform: scale(1)
 // .
     // &_icon-arrow-down
 
