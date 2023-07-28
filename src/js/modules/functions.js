@@ -33,3 +33,16 @@ inputs.forEach(input => {
 export const isMobile = { Android: () => navigator.userAgent.match(/Android/i), BlackBerry: () => navigator.userAgent.match(/BlackBerry/i), iOS: () => navigator.userAgent.match(/iPhone|iPad|iPod/i), Opera: () => navigator.userAgent.match(/Opera Mini/i), Windows: () => navigator.userAgent.match(/IEMobile/i), any: () => (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) };
 
 export const _removeClasses = (nodes, className) => nodes.forEach(node => node.classList.remove(className));
+
+const _ibg = () => {
+   
+   let ibg = document.querySelectorAll("._ibg");
+   console.log(ibg)
+   for (let i = 0; i < ibg.length; i++) {
+      console.log(ibg[i])
+      if(ibg[i].querySelector('img')){
+         ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
+      }
+   }
+}
+_ibg();

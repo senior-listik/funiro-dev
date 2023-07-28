@@ -3,10 +3,8 @@ let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
     for (let index = 0; index < sliders.length; index++){
         let slider = sliders[index];
-        console.log(slider)
         if (!slider.classList.contains('swiper-bild')) {
             let slider_items = slider.children;
-            console.log(slider_items)
             if (slider_items) {
                 for (let index = 0; index < slider_items.length; index++) {
                     let el = slider_items[index];
@@ -23,7 +21,7 @@ if (sliders) {
 
             if (slider.classList.contains('_swiper_scroll')) {
                 let sliderScroll = document.createElement('div');
-                sliderScroll.classList.add('swiper=scrollbar');
+                sliderScroll.classList.add('swiper-scrollbar');
                 slider.appendChild(sliderScroll);
             }
         }
@@ -43,11 +41,11 @@ if (sliderScrollItems > 0) {
         const sliderScrollBar = sliderScrollItem.querySelector('.swiper-scrollbar');
         const sliderScroll = new Swiper(sliderScrollItem, {
             observer: true,
-            observePaterns: true,
+            observeParents: true,
             direction: 'vertical',
             slidesPerView: 'auto',
             freeMode: true,
-            scrollbal: {
+            scrollbar: {
                 el: sliderScrollBar,
                 draggable: true,
                 snapOnRelease: false,
@@ -56,7 +54,7 @@ if (sliderScrollItems > 0) {
                 releaseOnEdges: true,
             },
         });
-        sliderScroll.sliderScrollBar.updateSize();
+        sliderScroll.scrollbar.updateSize();
     }
 }
 
@@ -65,7 +63,7 @@ if (sliderScrollItems > 0) {
 if (document.querySelector('.slider-main__body')) {
     new Swiper('.slider-main__body', {
         observer: true,
-        observePaterns: true,
+        observeParents: true,
         slidesPerView: '1',
         spaceBetween: 32,
         watchOverflow: true,
