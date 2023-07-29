@@ -91,3 +91,30 @@
         background-color: $orangeColor
     &::before
         transform: scale(1)
+
+.swiper-wrapper 
+    position: relative
+    width: 100%
+    height: 100%
+    z-index: 1
+    display: flex
+    transition-property: transform
+    transition-timing-function: var(--swiper-wrapper-transition-timing-function,initial)
+    box-sizing: content-box
+
+.swiper-backface-hidden .swiper-slide 
+    transform: translateZ(0)
+    -webkit-backface-visibility: hidden
+    backface-visibility: hidden
+
+.swiper-android .swiper-slide, .swiper-ios .swiper-slide, .swiper-wrapper 
+    transform: translate3d(0px,0,0)
+
+
+.swiper-slide 
+    flex-shrink: 0
+    width: 100%
+    height: 100%
+    position: relative
+    transition-property: transform
+    display: block

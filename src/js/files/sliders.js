@@ -5,6 +5,8 @@ if (sliders) {
         let slider = sliders[index];
         if (!slider.classList.contains('swiper-bild')) {
             let slider_items = slider.children;
+            console.log(slider)
+            console.log(slider_items)
             if (slider_items) {
                 for (let index = 0; index < slider_items.length; index++) {
                     let el = slider_items[index];
@@ -18,7 +20,8 @@ if (sliders) {
             slider.innerHTML = '';
             slider.appendChild(slider_wrapper);
             slider.classList.add('swiper-bild');
-
+            console.log(slider_content)
+            
             if (slider.classList.contains('_swiper_scroll')) {
                 let sliderScroll = document.createElement('div');
                 sliderScroll.classList.add('swiper-scrollbar');

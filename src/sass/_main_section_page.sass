@@ -28,12 +28,15 @@
         @media (min-width: $md2+px)
             display: flex
     &__content
+        align-self: flex-start
         flex: 0 0 494/1240 * 100%
-        // @include adaptiv-value("padding-bottom", 80, 15, 1)
+        @include adaptiv-value("margin-bottom", 80, 15, 1)
+        @media (max-width: $md2+px)
+            margin: 0 -15px
     &__slider
         flex: 1 1 auto
         min-width: 0
-        // align-self: flex-end
+        align-self: flex-end
         @media (min-width: $md2+px)
             padding-left: 32px
 
@@ -83,14 +86,21 @@
     display: flex
     flex-direction: column
     align-items: flex-end
+    @media (max-width: $md2+px)
+        align-items: stretch
+        flex-direction: column-reverse
     &__controls
         align-self: stretch
         margin: 0 0 20px 0
+        @media (max-width: $md2+px)
+            margin: 10px 0 20px 0
 
     &__body
         overflow: visible
         @media (min-width: $md2+px)
             @include adaptiv-value("width", 934, 290, 1)
+        @media (max-width: $md2+px)
+            margin: 0 -15px
 
     &__slide
         position: relative
@@ -102,7 +112,6 @@
         min-width: 295px
         max-height: 300px
         overflow: auto
-        position: absolute
         color: inherit
         display: flex
         flex-direction: column
@@ -146,9 +155,15 @@
     display: flex
     justify-content: space-between
     align-items: center
-//     &__dotts
-//         flex: 1 1 auto
-//     &__arrows
+    &__dotts
+        flex: 1 1 auto
+        @media (min-width: $md2+px)
+            margin: 0 20px 0 0
+        @media (max-width: $md2+px)
+            justify-content: center
+    &__arrows
+        @media (max-width: $md2+px)
+            display: none
 
 
 
