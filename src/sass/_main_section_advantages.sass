@@ -12,6 +12,10 @@
         display: inline-grid
         padding: 15px 0
         grid-template: auto auto / 85px 1fr
+        @media (max-width: $md2+px)
+            min-width: 280px
+        @media (max-width: $md3+px)
+            grid-template: auto auto / auto 1fr
 
     &__icon
         text-align: center
@@ -21,5 +25,12 @@
             padding: 0 15px 0 0
 
     &__title
+        font-weight: 600
+        font-size: 1.125rem
+        line-height: 150%
+        margin: 0 0 2px/18px * 1em 0
 
     &__text
+        font-weight: 500
+        line-height: 150%
+        color: $grayColor

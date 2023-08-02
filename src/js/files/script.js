@@ -21,7 +21,10 @@ window.onload = function () {
         } else if (!targetElement.closest('.menu__item') && document.querySelector('.search-form._active')) {
             document.querySelector('.search-form').classList.remove('_active');
         }
-
+        if (targetElement.classList.contains('products__more')) {
+            getProducts(targetElement);
+            e.preventDefault();
+        }
     }
     // header
     const headerElement = document.querySelector('.header');
@@ -35,6 +38,40 @@ window.onload = function () {
     }
 
     const headerObserver = new IntersectionObserver(callback);
-    headerObserver.observe(headerElement)
+    headerObserver.observe(headerElement);
+
+    async function getProducts(button) {
+        if (!button.classList.contains('_hold')) {
+            button.classList.add('_hold');
+            const file = "json/products.json";
+            let response = await fetch(file, {
+                method: "GET"
+            });
+            if (response.ok) {
+                let result = await response.json();
+                loadProducts(result);
+                button.classList.remove('_hold');
+                button.remove();
+            } else {
+                alert("Error");
+            }
+        }
+    }
+
+    function loadProducts(data) {
+        const productsItems = document.querySelector('.products__items');
+        data.products.forEach(item => {
+            const productId = item.id;
+            const productUrl = item.url;
+            const productImage = item.image;
+            const productTitle = item.title;
+            const productText = item.text;
+            const productPrice = item.price;
+            const productOldPrice = item.priceOld;
+            const productShareUrl = item.shareUrl;
+            const productLikeUrl = item.likeUrl;
+            const productLabels = item.labels;
+        })
+    }
     
 }

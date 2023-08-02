@@ -1,0 +1,31 @@
+- const cards = [{sale: '-30%', new: '', title: 'Syltherine', text: 'Stylish cafe chair', price: 'Rp 2.500.000', priceOld: 'Rp 3.500.000'}, {sale: '-30%', new: '', title: 'Leviosa', text: 'Stylish cafe chair', price: 'Rp 2.500.000', priceOld: ''}, {sale: '-30%', new: '', title: 'Lolito', text: 'Luxury big sofa', price: 'Rp 7.000.000', priceOld: 'Rp 14.000.000'}, {sale: '', new: 'New', title: 'Respira', text: 'Minimalist fan', price: 'Rp 500.000', priceOld: ''}]
+
+section.page__products.products
+    .products__container
+        h2.products__title._title Our products
+        .products__items
+            each card, index in cards
+                - let counter = index + 1
+                article.products__item.item-product(data-pid= counter)
+                    .item-product__labels 
+                        if (card.sale != '')
+                            .item-product__label.item-product__label_sale= card.sale
+                        if (card.new != '')
+                            .item-product__label.item-product__label_new= card.new
+                    a.item-product__image._ibg(href="")
+                        img(src="@img/products/0" + counter + ".jpg" alt= card.title)
+                    .item-product__body
+                        .item-product__content
+                            h3.item-product__title= card.title
+                            .item-product__text= card.text
+                        .item-product__prices 
+                            .item-product__price= card.price
+                            if (card.priceOld != '')
+                            .item-product__price.item-product__price_old= card.priceOld
+                        .item-product__actions.actions-product 
+                            .actions-product__body 
+                                a.actions-product__button.btn.btn_white(href="") Add to cart
+                                a.actions-product__link._icon-share(href="") Share
+                                a.actions-product__link._icon-favorite(href="") Like
+        .products__footer 
+            a.products__more.btn.btn_white(href="") Show more 
