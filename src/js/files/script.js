@@ -71,6 +71,43 @@ window.onload = function () {
             const productShareUrl = item.shareUrl;
             const productLikeUrl = item.likeUrl;
             const productLabels = item.labels;
+
+            let productTemlateStart = `<article data-pid="${productId}" class="products__item item-product"`;
+            let productTemlateEnd = `</article>`;
+
+            let productTemlateLabels = '';
+            if (productLabels) {
+                let productTemlateLabelsStart = '<div class="item-product__labels">';
+                let productTemlateLabelsEnd = '</div>';
+                let productTemlateLabelsContent = '';
+
+                productLabels.forEach(labelItem => {
+                    productTemlateLabelsContent += `<div class="item-product__label item-product__label_${labelItem.type}">${labelItem.value}</div>`;
+                });
+                
+                productTemlateLabels += productTemlateLabelsStart;
+                productTemlateLabels += productTemlateLabelsContent;
+                productTemlateLabels += productTemlateLabelsEnd;
+            }
+
+            let productTemlateImage = `
+            <a href="${productUrl}" class="item-product__image _ibg">
+                <img src="img/products/${productImage}" alt="${productTitle}">
+            </a>
+            `;
+
+            let productTemlateBodyStart = `<div class="item-product__body">`;
+            let productTemlateBodyEnd = `</div>`;
+
+            let productTemlateBodyContent = `
+            <div class="item-product__content">
+                <h3 class="item-product__title">${productTitle}</h3>
+                <div class="item-product__text">${productText}</div>
+            `;
+
+            let productTemlatePrices = '';
+            let productTemlatePricesStart = `<div class="item-product__prices"`;
+            
         })
     }
     
