@@ -1,12 +1,16 @@
 import { isMobile } from "/src/js/modules/functions.js";
 import { _removeClasses } from "/src/js/modules/functions.js";
 import { inputPlaceholderValue } from "/src/js/modules/functions.js";
-inputPlaceholderValue()
-
+import { _ibg } from "/src/js/modules/functions.js";
+inputPlaceholderValue();
+ _ibg();
 window.onload = function () {
+    
     document.addEventListener("click", documentActions);
+    
     // Actions (делегирование события click)
     function documentActions(e) {
+       
         const targetElement = e.target;
         if (window.innerWidth > 768 && isMobile.any()) {
             if (targetElement.classList.contains('menu__arrow')) {
@@ -23,6 +27,11 @@ window.onload = function () {
         }
         if (targetElement.classList.contains('products__more')) {
             getProducts(targetElement);
+            e.preventDefault();
+        }
+        if (targetElement.classList.contains('actions-product__button')) {
+            const productId = targetElement.closest('.item-product').dataset.pid;
+            addToCard(targetElement, productId);
             e.preventDefault();
         }
     }
@@ -72,43 +81,86 @@ window.onload = function () {
             const productLikeUrl = item.likeUrl;
             const productLabels = item.labels;
 
-            let productTemlateStart = `<article data-pid="${productId}" class="products__item item-product"`;
-            let productTemlateEnd = `</article>`;
+            let productTemplateStart = `<article data-pid="${productId}" class="products__item item-product">`;
+            let productTemplateEnd = `</article>`;
 
-            let productTemlateLabels = '';
+            let productTemplateLabels = '';
             if (productLabels) {
-                let productTemlateLabelsStart = '<div class="item-product__labels">';
-                let productTemlateLabelsEnd = '</div>';
-                let productTemlateLabelsContent = '';
+                let productTemplateLabelsStart = '<div class="item-product__labels">';
+                let productTemplateLabelsEnd = '</div>';
+                let productTemplateLabelsContent = '';
 
                 productLabels.forEach(labelItem => {
-                    productTemlateLabelsContent += `<div class="item-product__label item-product__label_${labelItem.type}">${labelItem.value}</div>`;
+                    productTemplateLabelsContent += `<div class="item-product__label item-product__label_${labelItem.type}">${labelItem.value}</div>`;
                 });
                 
-                productTemlateLabels += productTemlateLabelsStart;
-                productTemlateLabels += productTemlateLabelsContent;
-                productTemlateLabels += productTemlateLabelsEnd;
+                productTemplateLabels += productTemplateLabelsStart;
+                productTemplateLabels += productTemplateLabelsContent;
+                productTemplateLabels += productTemplateLabelsEnd;
             }
 
-            let productTemlateImage = `
+            let productTemplateImage = `
             <a href="${productUrl}" class="item-product__image _ibg">
                 <img src="img/products/${productImage}" alt="${productTitle}">
             </a>
             `;
 
-            let productTemlateBodyStart = `<div class="item-product__body">`;
-            let productTemlateBodyEnd = `</div>`;
+            let productTemplateBodyStart = `<div class="item-product__body">`;
+            let productTemplateBodyEnd = `</div>`;
 
-            let productTemlateBodyContent = `
+            let productTemplateContent = `
             <div class="item-product__content">
                 <h3 class="item-product__title">${productTitle}</h3>
                 <div class="item-product__text">${productText}</div>
             `;
 
-            let productTemlatePrices = '';
-            let productTemlatePricesStart = `<div class="item-product__prices"`;
+            let productTemplatePrices = '';
+            let productTemplatePricesStart = `<div class="item-product__prices">`;
+            let productTemplatePricesCurrent = `<div class="item-product__price">Rp ${productPrice}</div>`;
+            let productTemplatePricesOld = `<div class="item-product__price item-product__price_old">Rp ${productOldPrice}</div>`;
+            let productTemplatePricesEnd = `</div>`;
+
+            productTemplatePrices = productTemplatePricesStart;
+            productTemplatePrices += productTemplatePricesCurrent;
+            if (productOldPrice) {
+                productTemplatePrices += productTemplatePricesOld;
+            }
+            productTemplatePrices += productTemplatePricesEnd;
+
+            let productTemplateActions = `
+              <div class="item-product__actions actions-product"> 
+                    <div class="actions-product__body"> 
+                      <a class="actions-product__button btn btn_white" href="">Add to cart</a>
+                      <a class="actions-product__link _icon-share" href="${productShareUrl}">Share</a>
+                      <a class="actions-product__link _icon-favorite" href="${productLikeUrl}">Like</a>
+                    </div>
+                  </div>  
+            `;
+
+            let productTemplateBody = '';
+            productTemplateBody += productTemplateBodyStart;
+            productTemplateBody += productTemplateContent;
+            productTemplateBody += productTemplatePrices;
+            productTemplateBody += productTemplateActions;
+            productTemplateBody += productTemplateBodyEnd;
             
-        })
+            let productTemplate = '';
+            productTemplate += productTemplateStart;
+            productTemplate += productTemplateLabels;
+            productTemplate += productTemplateImage;
+            productTemplate += productTemplateBody;
+            productTemplate += productTemplateEnd;
+
+
+            productsItems.insertAdjacentHTML('beforeend', productTemplate)
+             _ibg();
+        });
     }
     
+    function addToCard([productButton], productId) {
+        if (!productButton.classList.contains('_hold')) {
+            productButton.classList.add('_hold');
+            roductButton.classList.fly('_hold');
+        }
+    }
 }

@@ -34,13 +34,12 @@ export const isMobile = { Android: () => navigator.userAgent.match(/Android/i), 
 
 export const _removeClasses = (nodes, className) => nodes.forEach(node => node.classList.remove(className));
 
-const _ibg = () => {
+export const _ibg = () => {
    
    let ibg = document.querySelectorAll("._ibg");
    for (let i = 0; i < ibg.length; i++) {
-      if(ibg[i].querySelector('img')){
+      if (ibg[i].querySelector('img')) {
          ibg[i].style.backgroundImage = 'url('+ibg[i].querySelector('img').getAttribute('src')+')';
       }
    }
 }
-_ibg();
