@@ -160,7 +160,41 @@ window.onload = function () {
     function addToCard([productButton], productId) {
         if (!productButton.classList.contains('_hold')) {
             productButton.classList.add('_hold');
-            roductButton.classList.fly('_hold');
+            productButton.classList.fly('_hold');
+
+            const cart = document.querySelector('.cart-header__icon');
+            const product = document.querySelector(`[data-pid="${productId}"]`);
+            const productImage = document.querySelector('.item-product__image');
+
+            const productImageFly = productImage.cloneNode(true);
+
+            const productImageFlyWidth = productImage.offsetWidth;
+            const productImageFlyHeight = productImage.offsetWidth;
+            const productImageFlyTop = productImage.getBoundingClientRect().top;
+            const productImageFlyLeft = productImage.getBoundingClientRect().left;
+
+            productImageFly.setAttribute('class', '_flyImage _ibg');
+            productImageFly.style.cssText = `
+            
+            left: ${productImageFlyLeft}px;
+            top: ${productImageFlyTop}px;
+            width: ${productImageFlyWidth}px;
+            height: ${productImageFlyHeight}px;
+            `;
+
+            document.body.append(productImageFly);
+
+            const cartFlyLeft = cart.getBoundingClientRect().left;
+            const cartFlTop = cart.getBoundingClientRect().top;
+
+            productImageFly.style.cssText = `
+            
+            left: ${cartFlyLeft}px;
+            top: ${cartFlTop}px;
+            width: 0px;
+            height: 0px;
+            opacity: 0;
+            `;
         }
     }
 }
