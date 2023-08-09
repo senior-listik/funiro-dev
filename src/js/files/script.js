@@ -30,6 +30,7 @@ window.onload = function () {
             e.preventDefault();
         }
         if (targetElement.classList.contains('actions-product__button')) {
+            
             const productId = targetElement.closest('.item-product').dataset.pid;
             addToCard(targetElement, productId);
             e.preventDefault();
@@ -45,7 +46,7 @@ window.onload = function () {
             headerElement.classList.add('_scroll');
         }
     }
-
+console.log(document.querySelector('.actions-product__button'))
     const headerObserver = new IntersectionObserver(callback);
     headerObserver.observe(headerElement);
 
@@ -86,8 +87,8 @@ window.onload = function () {
 
             let productTemplateLabels = '';
             if (productLabels) {
-                let productTemplateLabelsStart = '<div class="item-product__labels">';
-                let productTemplateLabelsEnd = '</div>';
+                let productTemplateLabelsStart = `<div class="item-product__labels">`;
+                let productTemplateLabelsEnd = `</div>`;
                 let productTemplateLabelsContent = '';
 
                 productLabels.forEach(labelItem => {
@@ -157,44 +158,74 @@ window.onload = function () {
         });
     }
     
-    function addToCard([productButton], productId) {
+    function addToCard(productButton, productId) {
+        
         if (!productButton.classList.contains('_hold')) {
+            
             productButton.classList.add('_hold');
-            productButton.classList.fly('_hold');
+            productButton.classList.add('_fly');
 
             const cart = document.querySelector('.cart-header__icon');
             const product = document.querySelector(`[data-pid="${productId}"]`);
-            const productImage = document.querySelector('.item-product__image');
+            const productImage = product.querySelector('.item-product__image');
 
             const productImageFly = productImage.cloneNode(true);
 
             const productImageFlyWidth = productImage.offsetWidth;
-            const productImageFlyHeight = productImage.offsetWidth;
+            const productImageFlyHeight = productImage.offsetHeight;
             const productImageFlyTop = productImage.getBoundingClientRect().top;
             const productImageFlyLeft = productImage.getBoundingClientRect().left;
 
             productImageFly.setAttribute('class', '_flyImage _ibg');
-            productImageFly.style.cssText = `
             
+            productImageFly.style.cssText = `
             left: ${productImageFlyLeft}px;
             top: ${productImageFlyTop}px;
             width: ${productImageFlyWidth}px;
             height: ${productImageFlyHeight}px;
             `;
-
+            
             document.body.append(productImageFly);
 
             const cartFlyLeft = cart.getBoundingClientRect().left;
             const cartFlTop = cart.getBoundingClientRect().top;
 
             productImageFly.style.cssText = `
-            
             left: ${cartFlyLeft}px;
             top: ${cartFlTop}px;
             width: 0px;
             height: 0px;
             opacity: 0;
             `;
+            _ibg();
+
+            productImageFly.addEventListener('transitionend', function () {
+               
+                if (productButton.classList.contains('_fly')) {
+                     
+                    productImageFly.remove();
+                    updateCart(productButton, productId);
+                    productButton.classList.remove('_fly');
+                }
+            })
+        }
+    }
+
+    function updateCart(productButton, productId, productAdd = true) {
+        const cart = document.querySelector('.cart-header');
+        const cartIcon = cart.querySelector('.cart-header__icon');
+        const cartQuantity = cartIcon.querySelector('span');
+        const cartProduct = document.querySelector(`[data-cart-pid="${productId}]`);
+        const cartList = document.querySelector('.cart-list');
+
+        // add
+        if (productAdd) {
+            
+            if (cartQuantity) {
+                cartQuantity.innerHTML = ++cartQuantity.innerHTML;
+            } else {
+                cartIcon.insertAdjacentHTML('beforeend', `<span>1</span>`);
+            }
         }
     }
 }
