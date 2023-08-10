@@ -1,0 +1,79 @@
+// @include adaptiv-value("padding-top", 88, 30, 1)
+// @media (max-width: $md3+px)
+// &:not(:last-child)
+// @media (any-hover: hover)
+//             &:hover
+
+.rooms
+    background: #FCF8F3
+    @include adaptiv-value("padding-top", 44, 30, 1)
+    @include adaptiv-value("padding-bottom", 44, 30, 1)
+    &__container
+        @media (max-width: $md2+px)
+            display: flex
+    &__body
+        flex: 1 1 465/1240 * 100%
+        position: relative
+        z-index: 5
+        align-self: center
+        @media (max-width: $md2+px)
+            @include adaptiv-value("padding-right", 80, 30, 1)   
+    &__title
+        &:not(:last-child)
+            margin: 0 0 8px/40px * 1em 0
+        text-align: left
+    &__text
+        line-height: 150%
+        font-weight: 500
+        &:not(:last-child)
+            margin: 0 0 24px 0
+    &__button
+        background: $orangeColor
+        color: #fff
+        min-width: 180px
+        @media (any-hover: hover)
+            &:hover
+                background-color: #8d6146
+    &__slider
+        flex: 1 1 auto
+        min-width: 0
+        align-self: flex-start
+
+
+.slider-rooms
+    &__body
+
+    &__slide
+
+    &__image
+
+    &__content
+
+    &__label
+
+    &__title
+
+    &__arrows
+
+    &__dotts
+
+
+.label-slider
+    &__number
+
+    &__line
+
+    &__text
+
+
+.slider-arrows
+
+.slider-arrow
+    &_white
+
+    &_prev
+
+    &_next
+
+
+

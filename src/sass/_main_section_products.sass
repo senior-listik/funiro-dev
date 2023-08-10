@@ -1,9 +1,3 @@
-// @include adaptiv-value("padding-top", 88, 30, 1)
-// @media (max-width: $md3+px)
-// &:not(:last-child)
-// @media (any-hover: hover)
-//             &:hover
-
 .products
     @include adaptiv-value("padding-bottom", 44, 30, 1)
     &__container
@@ -24,6 +18,9 @@
     &__more
         border: 1px solid $orangeColor
         min-width: 245px
+        &._hold
+            opasity: 0.2
+            cursor: default
 
 .item-product
     background: #F4F5F7
@@ -122,6 +119,9 @@
         flex: 1 1 100%
         &:not(:last-child)
             margin: 0 0 24px 0
+        &._hold
+            opasity: 0.4
+            cursor: default
 
     &__link
         display: flex
