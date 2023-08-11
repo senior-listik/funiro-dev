@@ -3,9 +3,9 @@ import { _removeClasses } from "/src/js/modules/functions.js";
 import { inputPlaceholderValue } from "/src/js/modules/functions.js";
 import { _ibg } from "/src/js/modules/functions.js";
 inputPlaceholderValue();
- _ibg();
+ 
 window.onload = function () {
-    
+    _ibg();
     document.addEventListener("click", documentActions);
     
     // Actions (делегирование события click)

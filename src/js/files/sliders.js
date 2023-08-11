@@ -86,6 +86,7 @@ if (document.querySelector('.slider-main__body')) {
 }
 
 if (document.querySelector('.slider-rooms__body')) {
+    _ibg();
     new Swiper('.slider-rooms__body', {
         observer: true,
         observeParents: true,
@@ -93,7 +94,7 @@ if (document.querySelector('.slider-rooms__body')) {
         spaceBetween: 24,
         speed: 800,
         loop: true,
-        watchOverFlow: true,
+        watchOverflow: true,
         loopAdditionalSlides: 5,
         preloadImages: false,
         parallax: true,
