@@ -1,3 +1,4 @@
+import { _ibg } from "/src/js/modules/functions.js";
 // BildSlider
 let sliders = document.querySelectorAll('._swiper');
 if (sliders) {
@@ -86,7 +87,6 @@ if (document.querySelector('.slider-main__body')) {
 }
 
 if (document.querySelector('.slider-rooms__body')) {
-    _ibg();
     new Swiper('.slider-rooms__body', {
         observer: true,
         observeParents: true,
@@ -107,6 +107,28 @@ if (document.querySelector('.slider-rooms__body')) {
         navigation: {
             nextEl: '.slider-rooms .slider-arrow_next',
             prevEl: '.slider-rooms .slider-arrow_prev',
+        }
+    });
+}
+
+if (document.querySelector('.slider-tips__body')) {
+    new Swiper('.slider-tips__body', {
+        observer: true,
+        observeParents: true,
+        slidesPerView: 3,
+        spaceBetween: 32,
+        speed: 800,
+        loop: true,
+        watchOverflow: true,
+        // Dotts
+        pagination: {
+            el: '.slider-tips__dotts',
+            clickable: true,
+        },
+        // Arrows
+        navigation: {
+            nextEl: '.slider-tips .slider-arrow_next',
+            prevEl: '.slider-tips .slider-arrow_prev',
         }
     });
 }

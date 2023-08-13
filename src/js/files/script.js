@@ -5,6 +5,7 @@ import { _ibg } from "/src/js/modules/functions.js";
 inputPlaceholderValue();
  
 window.onload = function () {
+    console.log('kuku')
     _ibg();
     document.addEventListener("click", documentActions);
     
