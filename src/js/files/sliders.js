@@ -129,6 +129,20 @@ if (document.querySelector('.slider-tips__body')) {
         navigation: {
             nextEl: '.slider-tips .slider-arrow_next',
             prevEl: '.slider-tips .slider-arrow_prev',
+        },
+        breakpoints: {
+            320: {
+                slidesPerView: 1.1,
+                spaceBetween: 15,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            992: {
+                slidesPerView: 3,
+                spaceBetween: 32,
+            },
         }
     });
 }
